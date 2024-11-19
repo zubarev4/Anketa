@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jūsų atsakymai</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <div class="card p-4 shadow-sm rounded-lg">
+            <h2 class="text-center mb-4">Jūsų pateikti duomenys</h2>
+            <div id="formDataContainer">
+                <div>
+                    <div class="form-section mb-4">
+                        <div class="form-section-header">
+                            <i class="fas fa-user-circle mr-2"></i>
+                            <span>Asmeninė informacija</span>
+                        </div>
+                        <p><strong>Vardas:</strong> <span id="firstName"></span></p>
+                        <p><strong>Pavardė:</strong> <span id="lastName"></span></p>
+                        <p><strong>Gimimo Data:</strong> <span id="birthDate"></span></p>
+                        <p><strong>Lytis:</strong> <span id="gender"></span></p>
+                        <p><strong>Asmens Kodas:</strong> <span id="autoNationalId"></span><span id="manualNationalId"></span></p>
+                    </div>
+
+                    <div class="form-section mb-4" id="educationContainer">
+                        <div class="form-section-header">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            <span>Išsilavinimo informacija</span>
+                        </div>
+                        <p><strong>Išsilavinimo Lygis:</strong> <span id="education"></span></p>
+                        <p id="graduationDetails" style="display: none;">
+                            <strong>Paskutinė Baigta Mokslo/Studijų Įstaiga:</strong> <span id="institution"></span><br>
+                            <strong>Baigimo Metai:</strong> <span id="graduationYear"></span>
+                        </p>
+                        <p id="qualificationDetails" style="display: none;">
+                            <strong>Kvalifikacija (specialybės pavadinimas):</strong> <span id="qualification"></span>
+                        </p>
+                        <p id="degreeDetails" style="display: none;">
+                            <strong>Mokslo Laipsnis:</strong> <span id="degree"></span>
+                        </p>
+                    </div>
+
+                    <div class="form-section mb-4">
+                        <div class="form-section-header">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>Kontaktinė informacija</span>
+                        </div>
+                        <p><strong>Telefono Numeris:</strong> <span id="phone"></span></p>
+                        <p><strong>El. Pašto Adresas:</strong> <span id="email"></span></p>
+                        <p><strong>Gyvenamoji Vieta (Adresas):</strong> <span id="address"></span></p>
+                    </div>
+
+                    <div class="form-section mb-4" id="employmentContainer">
+                        <div class="form-section-header">
+                            <i class="fas fa-briefcase mr-2"></i>
+                            <span>Profesinė padėtis</span>
+                        </div>
+                        <p><strong>Profesinė Padėtis:</strong> <span id="employmentStatus"></span></p>
+                        <div id="studentDetailsSummary" style="display: none;">
+                            <p><strong>Studijų Pakopa:</strong> <span id="studyLevel"></span></p>
+                            <p><strong>Kursas:</strong> <span id="courseYear"></span></p>
+                            <p><strong>Įstaiga:</strong> <span id="institutionName"></span></p>
+                            <p><strong>Tikėtini Baigimo Metai:</strong> <span id="expectedGraduation"></span></p>
+                        </div>
+                        <div id="employmentDetailsSummary" style="display: none;">
+                            <p><strong>Darbo Įstaiga:</strong> <span id="workplace"></span></p>
+                            <p><strong>Pareigos:</strong> <span id="jobTitle"></span></p>
+                        </div>
+                        <div id="unemploymentDetailsSummary" style="display: none;">
+                            <p><strong>Nedarbo Priežastis:</strong> <span id="unemploymentReason"></span></p>
+                        </div>
+                        <div id="leaveDetailsSummary" style="display: none;">
+                            <p><strong>Atostogų Pabaigos Data:</strong> <span id="leaveEnd"></span></p>
+                        </div>
+                        <div id="workFieldSummary" style="display: none;">
+                            <p><strong>Darbo Sritis:</strong> <span id="workField"></span></p>
+                        </div>
+                        <div id="experienceSummary" style="display: none;">
+                            <p><strong>Darbo Patirtis (metai):</strong> <span id="experience"></span></p>
+                        </div>
+                    </div>
+
+                    <div class="form-section mb-4" id="maritalStatusContainer">
+                        <div class="form-section-header">
+                            <i class="fas fa-heart mr-2"></i>
+                            <span>Vedybinė padėtis</span>
+                        </div>
+                        <p><strong>Vedybinė Padėtis:</strong> <span id="maritalStatus"></span></p>
+                        <div id="spouseInfoSummary" style="display: none;">
+                            <p><strong>Sutuoktinio Vardas:</strong> <span id="spouseFirstName"></span></p>
+                            <p><strong>Sutuoktinio Pavardė:</strong> <span id="spouseLastName"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="form.js"></script>
+    <script src="script.js"></script>
+
+        
+</body>
+</html>

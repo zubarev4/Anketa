@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anketa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
+
+    <div class="container mt-5 mb-5">
+        <div class="card p-4 shadow-sm rounded-lg">
+            <h2 class="text-center mb-4">Anketa kliento duomenims surinkti</h2>
+            <form id="clientForm" class="needs-validation" novalidate>
+                <div class="form-section mb-4">
+                    <div class="form-section-header">
+                        <i class="fas fa-user-circle mr-2"></i>
+                        <span>Asmeninė informacija</span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="gender">Lytis:</label>
+                            <select id="gender" name="gender" class="form-control" required>
+                                <option value="">Select</option>
+                                <option value="vyras">Vyras</option>
+                                <option value="moteris">Moteris</option>
+                            </select>
+                            <div class="invalid-feedback">Pasirinkite lytį.</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="firstName">Vardas:</label>
+                            <input type="text" id="firstName" name="firstName" class="form-control" required>
+                            <div class="invalid-feedback">Įvesite vardą.</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Pavardė:</label>
+                            <input type="text" id="lastName" name="lastName" class="form-control" required>
+                            <div class="invalid-feedback">Įveskite pavardę.</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="birthDate">Gimimo Data:</label>
+                            <input type="date" id="birthDate" name="birthDate" class="form-control" required>
+                            <div class="invalid-feedback">Pasirinkite gimimo datą.</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section mb-4">
+                    <div class="form-section-header">
+                        <i class="fas fa-id-card mr-2"></i>
+                        <span>Identifikacijos informacija</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationalId">Asmens kodas:</label>
+                        <div id="nationalIdContainer" class="d-flex">
+                            <input type="text" id="autoNationalId" name="autoNationalId" class="form-control mr-2" readonly>
+                            <input type="number" id="manualNationalId" name="manualNationalId" class="form-control" placeholder="XXXX" required maxlength="4">
+                            <div class="invalid-feedback">Įveskite asmens kodą.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section mb-4">
+                    <div class="form-section-header">
+                        <i class="fas fa-graduation-cap mr-2"></i>
+                        <span>Išsilavinimo informacija</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Išsilavinimas:</label>
+                        <select id="education" name="education" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="pagrindinis">Pagrindinis</option>
+                            <option value="vidurinis">Vidurinis</option>
+                            <option value="profesinis">Profesinis</option>
+                            <option value="aukštasis kolegijinis">Aukštasis-kolegijinis</option>
+                            <option value="aukštasis universitetinis">Aukštasis-universitetinis</option>
+                        </select>
+                        <div class="invalid-feedback">Pasirinkite išsilavinimą.</div>
+                    </div>
+                    <div id="graduatedInstitutionContainer" style="display: none;">
+                        <label for="institution">Paskutinė baigta mokslo/studijų įstaiga:</label>
+                        <input type="text" id="institution" name="institution" class="form-control">
+                        <label for="graduationYear">Baigimo metai:</label>
+                        <input type="number" id="graduationYear" name="graduationYear" class="form-control" required maxlength="4">
+                        <div class="invalid-feedback">Įveskite baigimo metus.</div>
+                    </div>
+                    <div id="qualificationContainer" style="display: none;">
+                        <label for="qualification">Kvalifikacija (specialybės pavadinimas):</label>
+                        <input type="text" id="qualification" name="qualification" class="form-control">
+                        <div class="invalid-feedback">Įveskite kvalifikaciją.</div>
+                    </div>
+                    <div id="degreeContainer" style="display: none;">
+                        <label for="degree">Mokslo laipsnis:</label>
+                        <select id="degree" name="degree" class="form-control">
+                            <option value="">Select</option>
+                            <option value="profesinis bakalauras">Profesinis bakalauras</option>
+                            <option value="bakalauras">Bakalauras</option>
+                            <option value="magistras">Magistras</option>
+                            <option value="mokslų daktaras">Mokslų daktaras</option>
+                        </select>
+                        <div class="invalid-feedback">Pasirinkite mokslo laipsnį.</div>
+                    </div>
+                </div>
+
+                <div class="form-section mb-4">
+                    <div class="form-section-header">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        <span>Kontaktinė informacija</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefono numeris:</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+370" required>
+                        <div class="invalid-feedback">Įveskite telefono numerį.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">El. pašto adresas:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                        <div class="invalid-feedback">Įveskite el. pašto adresą.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Gyvenamoji vieta (adresas):</label>
+                        <input type="text" id="address" name="address" placeholder="Gatvė, Namo numeris, Buto numeris, Miestas, Valstybė" class="form-control" required>
+                        <div class="invalid-feedback">Įveskite gyvenamąjį adresą.</div>
+                    </div>
+                </div>
+
+                <div id="employmentStatusContainer" class="form-section mb-4" style="display: none;">
+                    <div class="form-section-header">
+                        <i class="fas fa-briefcase mr-2"></i>
+                        <span>Darbo informacija</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="employmentStatus">Profesinė padėtis:</label>
+                        <select id="employmentStatus" name="employmentStatus" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="studijuoja">Studijuoja</option>
+                            <option value="dirba">Dirba</option>
+                            <option value="nedirba">Nedirba</option>
+                            <option value="motinystės/tėvystės atostogose">Motinystės/tėvystės atostogose</option>
+                            <div class="invalid-feedback">Pasirinkite profesinė padėtį.</div>
+                        </select>
+                    </div>
+                    <div id="studentDetails" style="display: none;">
+                        <label for="studyLevel">Studijų pakopa:</label>
+                        <input type="text" id="studyLevel" name="studyLevel" class="form-control">
+                        <div class="invalid-feedback">Įveskite studijų pakopą.</div>
+                        <label for="courseYear">Kursas:</label>
+                        <input type="number" id="courseYear" name="courseYear" class="form-control">
+                        <div class="invalid-feedback">Įveskite kursą.</div>
+                        <label for="institutionName">Įstaiga:</label>
+                        <input type="text" id="institutionName" name="institutionName" class="form-control">
+                        <div class="invalid-feedback">Įveskite įstaigą.</div>
+                        <label for="expectedGraduation">Tikėtini baigimo metai:</label>
+                        <input type="number" id="expectedGraduation" name="expectedGraduation" class="form-control" required maxlength="4">
+                        <div class="invalid-feedback">Įveskite tikėtinus baigimo metus.</div>
+                    </div>
+                    <div id="employmentDetails" style="display: none;">
+                        <label for="workplace">Darbo įstaiga:</label>
+                        <input type="text" id="workplace" name="workplace" class="form-control">
+                        <div class="invalid-feedback">Įveskite darbo įstaigą.</div>
+                        <label for="jobTitle">Pareigos:</label>
+                        <input type="text" id="jobTitle" name="jobTitle" class="form-control">
+                        <div class="invalid-feedback">Įveskite pareigą.</div>
+                    </div>
+                    <div id="unemploymentDetails" style="display: none;">
+                        <label for="unemploymentReason">Nedarbo priežastis:</label>
+                        <input type="text" id="unemploymentReason" name="unemploymentReason" class="form-control">
+                        <div class="invalid-feedback">Įveskite nedarbo priežastį.</div>
+                    </div>
+                    <div id="leaveDetails" style="display: none;">
+                        <label for="leaveEnd">Atostogų pabaiga:</label>
+                        <input type="date" id="leaveEnd" name="leaveEnd" class="form-control">
+                        <div class="invalid-feedback">Pasirinkite atostogų pabaigą.</div>
+                    </div>
+                    <div id="experienceContainer" style="display: none;">
+                        <label for="experience">Darbo patirtis (metai):</label>
+                        <input type="number" id="experience" name="experience" min="0" max="99" class="form-control" required>
+                        <div class="invalid-feedback">Įvesite darbo patirtį.</div>
+                    </div>
+                    <div id="workFieldContainer" style="display: none;">
+                        <label for="workField">Darbo sritis:</label>
+                        <select id="workField" name="workField" class="form-control">
+                            <option value="">Select</option>
+                            <option value="teisė">Teisė</option>
+                            <option value="viešasis sektorius">Viešasis sektorius</option>
+                            <option value="sveikatos apsauga">Sveikatos apsauga</option>
+                            <option value="farmacija">Farmacija</option>
+                            <option value="pramonė / gamyba">Pramonė / gamyba</option>
+                            <option value="it">IT</option>
+                            <option value="prekyba">Prekyba</option>
+                            <option value="krašto apsauga">Krašto apsauga</option>
+                            <option value="vidaus reikalų sistema">Vidaus reikalų sistema</option>
+                            <option value="aptarnavimas">Klientų aptarnavimas ir paslaugos</option>
+                            <option value="transportas">Transportas</option>
+                            <option value="pramogos">Kultūra ir pramogos</option>
+                            <option value="švietimas">Švietimas / studijos</option>
+                            <option value="jokia">Jokia</option>
+                        </select>
+                        <div class="invalid-feedback">Pasirinkite darbo sritį.</div>
+                    </div>
+                </div>
+
+                <div id="maritalStatusContainer" class="form-section mb-4" style="display: none;">
+                    <div class="form-section-header">
+                        <i class="fas fa-heart mr-2"></i>
+                        <span>Vedybinė padėtis</span>
+                    </div>
+                    <div class="form-group" >
+                        <label for="maritalStatus">Vedybinė padėtis:</label>
+                        <select id="maritalStatus" name="maritalStatus" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="nevedęs/netekėjusi">Nevedęs/Netekėjusi</option>
+                            <option value="vedęs/ištekėjusi">Vedęs/Ištekėjusi</option>
+                            <option value="išsiskyręs(-usi)">Išsiskyręs(-usi)</option>
+                        </select>
+                        <div class="invalid-feedback">Pasirinkite vedybinę padėtį.</div>
+                    </div>
+                    <div id="spouseInfo" style="display: none;">
+                        <label for="spouseFirstName">Sutuoktinio vardas:</label>
+                        <input type="text" id="spouseFirstName" name="spouseFirstName" class="form-control">
+                        <div class="invalid-feedback">Įveskite sutuoktinio vardą.</div>
+                        <label for="spouseLastName">Sutuoktinio pavardė:</label>
+                        <input type="text" id="spouseLastName" name="spouseLastName" class="form-control">
+                        <div class="invalid-feedback">Įveskite sutuoktinio pavardę.</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block rounded-pill mt-4">Submit</button>
+                
+            </form>
+            
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+
+</body>
+
+</html>
